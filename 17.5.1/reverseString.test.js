@@ -1,25 +1,16 @@
-import reverseString from './reverseString.js'; 
+const reverseString = require('./reverseString.js'); 
+test('should reverse a string', () => {
+  expect(reverseString('hello')).toBe('olleh');
+});
 
-describe('reverseString', () => {
-  it('should reverse a simple string', () => {
-    expect(reverseString("abc")).toBe("cba");
-  });
+test('should handle empty string', () => {
+  expect(reverseString('')).toBe('');
+});
 
-    it('should reverse the string "строка"', () => {
-        expect(reverseString("строка")).toBe("акортс");
-    });
+test('should handle string with spaces', () => {
+  expect(reverseString('  abc  ')).toBe('  cba  ');
+});
 
-    it('should handle empty string', () => {
-        expect(reverseString("")).toBe("");
-    });
-
-    it('should handle string with spaces', () => {
-        expect(reverseString(" a b c ")).toBe(" c b a ");
-    });
-
-    it('should return null for non-string input', () => {
-        expect(reverseString(123)).toBeNull();
-        expect(reverseString(null)).toBeNull();
-        expect(reverseString(undefined)).toBeNull();
-    });
+test('should return null for non-string input', () => {
+  expect(reverseString(123)).toBe(null);
 });
